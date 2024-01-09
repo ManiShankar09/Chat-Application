@@ -3,13 +3,13 @@ const app = express();
 const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://manishankar-chat-app.netlify.app/",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
